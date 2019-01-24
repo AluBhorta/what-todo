@@ -1,0 +1,37 @@
+// variables - typography, color, border, font-size, media-query-breakpoints, animation-durations, ...  //
+
+// FONTS
+$font-fam: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+// COLORS
+$main-color: #4937b1;
+$white-color: #fff;
+$light-grey-color: #ccc;
+$black: #000;
+
+// RESETS
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: $font-fam;
+}
+
+// MIXINS
+
+// FUNCTIONS
+
+@function set-text-color($background) {
+  @if (lightness($background) > 50) {
+    @return #000; // Lighter backgorund, return dark color
+  } @else {
+    @return #fff; // Darker background, return light color
+  }
+}

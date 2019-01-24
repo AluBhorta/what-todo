@@ -1,0 +1,14 @@
+// resets, variables, mixins, and some utility CSS classes
+// or
+// contains global styles, such as resets, typography, colors, etc
+@import "./base/base";
+
+// components such as buttons, navbars, cards, anything that is reusable
+// or
+// contains each self-contained component in its own .scss partial
+@import "./components/component";
+
+// handles the overall layout of the web page such as container and grid systems.
+// or
+// contains styling for larger layout components; e.g. nav, header, footer, etc.
+@import "./layout/layout";
