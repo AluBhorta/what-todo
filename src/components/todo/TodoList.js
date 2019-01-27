@@ -9,19 +9,38 @@ class TodoList extends Component {
     this.state = {
       listTitle: props.title,
       listItems: [],
-      displayForm: false
+      displayAddItemForm: false
     };
   }
 
-  handleAddListItem = e => {
-    console.log("adding list item");
+  handleAddNewListItem = e => {
+    this.setState({ displayAddItemForm: true });
+  };
+
+  handleListItem = (itemTitle, itemPriority) => {
+    this.setState(prevState => {
+      const id = prevState.listItems.length;
+      prevState.listItems.push(
+        <ListItem key={id} title={itemTitle} priority={itemPriority} />
+      );
+      return prevState;
+    });
+    this.setState({ displayAddItemForm: false });
   };
 
   render(props) {
+    const listItems = this.state.listItems;
     return (
       <div className="todo-list">
         <h1>Todo List: {this.state.listTitle}</h1>
-        <AddButton handleAddListItem={this.handleAddListItem} />
+
+        {this.state.displayAddItemForm ? (
+          <AddItemForm handleListItem={this.handleListItem} />
+        ) : (
+          <AddButton handleAddNewListItem={this.handleAddNewListItem} />
+        )}
+
+        <div className="list-items">{listItems}</div>
       </div>
     );
   }

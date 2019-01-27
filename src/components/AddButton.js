@@ -1,11 +1,11 @@
 import React from "react";
 
 function AddButton(props) {
-  const { handleAddNewList, handleAddListItem } = props;
+  const { handleAddNewList, handleAddNewListItem } = props;
   return (
     <button
       className="add-btn"
-      onClick={handleAddNewList ? handleAddNewList : handleAddListItem}
+      onClick={handleAddNewList ? handleAddNewList : handleAddNewListItem}
     >
       {` + `}
     </button>

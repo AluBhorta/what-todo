@@ -5,11 +5,22 @@ class AddItemForm extends Component {
     super(props);
     this.state = {
       itemTitle: "",
-      itemPriority: ""
+      itemPriority: 5,
+      handleListItem: props.handleListItem
     };
   }
 
-  handleChange = e => {};
+  handleChange = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+    console.log(value);
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const { itemTitle, handleListItem, itemPriority } = this.state;
+    handleListItem(itemTitle, itemPriority);
+  };
 
   render() {
     return (
@@ -21,8 +32,18 @@ class AddItemForm extends Component {
             name="itemTitle"
             value={this.state.itemTitle}
             onChange={this.handleChange}
-            placeholder="Enter list item title"
+            placeholder="Enter item title"
           />
+          <label>Item Priority: {this.state.itemPriority}</label>
+          <input
+            type="range"
+            min={1}
+            max={10}
+            name="itemPriority"
+            value={this.state.itemPriority}
+            onChange={this.handleChange}
+          />
+
           <button>Add New Item</button>
         </form>
       </div>
