@@ -13,13 +13,16 @@ class AddItemForm extends Component {
   handleChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
-    console.log(value);
   };
 
   handleSubmit = e => {
     e.preventDefault();
     const { itemTitle, handleListItem, itemPriority } = this.state;
-    handleListItem(itemTitle, itemPriority);
+    handleListItem(true, itemTitle, itemPriority);
+  };
+
+  handleCancel = e => {
+    this.state.handleListItem(false);
   };
 
   render() {
@@ -46,6 +49,7 @@ class AddItemForm extends Component {
 
           <button>Add New Item</button>
         </form>
+        <button onClick={this.handleCancel}>Cancel</button>
       </div>
     );
   }

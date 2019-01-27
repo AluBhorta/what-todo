@@ -9,19 +9,22 @@ body {
   display: grid;
   justify-items: center;
   grid-gap: 1rem;
-  position: relative;
+  // position: relative;
 }
 
 .todo-lists {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  width: 90%;
+  justify-content: space-around;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   grid-gap: 0.5rem;
 }
 
 .add-btn {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
-.todo-list {
-  border: 1px solid #000;
+.footer {
+  position: relative;
+  top: 200px;
 }

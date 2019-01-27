@@ -5,8 +5,9 @@ function ListItem(props) {
   return (
     <div className="list-item">
       <h3>List Item</h3>
-      Title: {title}
       Priority: {priority}
+      <br />
+      Title: {title}
     </div>
   );
 }

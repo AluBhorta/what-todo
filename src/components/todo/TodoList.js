@@ -17,14 +17,16 @@ class TodoList extends Component {
     this.setState({ displayAddItemForm: true });
   };
 
-  handleListItem = (itemTitle, itemPriority) => {
-    this.setState(prevState => {
-      const id = prevState.listItems.length;
-      prevState.listItems.push(
-        <ListItem key={id} title={itemTitle} priority={itemPriority} />
-      );
-      return prevState;
-    });
+  handleListItem = (willAddNewItem, itemTitle, itemPriority) => {
+    if (willAddNewItem) {
+      this.setState(prevState => {
+        const id = prevState.listItems.length;
+        prevState.listItems.push(
+          <ListItem key={id} title={itemTitle} priority={itemPriority} />
+        );
+        return prevState;
+      });
+    }
     this.setState({ displayAddItemForm: false });
   };
 
@@ -32,7 +34,7 @@ class TodoList extends Component {
     const listItems = this.state.listItems;
     return (
       <div className="todo-list">
-        <h1>Todo List: {this.state.listTitle}</h1>
+        <h1>{this.state.listTitle}</h1>
 
         {this.state.displayAddItemForm ? (
           <AddItemForm handleListItem={this.handleListItem} />

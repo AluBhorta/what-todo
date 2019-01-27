@@ -13,6 +13,10 @@
   background-color: lighten($color: $main-color, $amount: 20);
 }
 
+.todo-list {
+  border: 1px solid #000;
+}
+
 .list-item {
   border: 1px grey solid;
 }

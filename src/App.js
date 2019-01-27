@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AddButton from "./components/AddButton";
 import TodoList from "./components/todo/TodoList";
 import AddListForm from "./components/todo/AddListForm";
+import RouterTest from "./components/RouterTest";
 
 class App extends Component {
   state = {
@@ -26,10 +27,13 @@ class App extends Component {
   };
 
   render() {
-    const todoLists = this.state.todoLists;
+    const todoLists = this.state.todoLists.map(list => (
+      <div className="todo-list">{list.props.title}</div>
+    ));
+
     return (
       <div className="app">
-        <Header />
+        {/* <Header />
         {this.state.displayAddListModal ? (
           <AddListForm handleListTitle={this.handleListTitle} />
         ) : (
@@ -37,7 +41,8 @@ class App extends Component {
         )}
 
         <div className="todo-lists">{todoLists}</div>
-        {/* <Footer /> */}
+        <Footer /> */}
+        <RouterTest />
       </div>
     );
   }

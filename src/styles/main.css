@@ -38,6 +38,10 @@ html {
   background-color: #8679d5;
 }
 
+.todo-list {
+  border: 1px solid #000;
+}
+
 .list-item {
   border: 1px grey solid;
 }
@@ -66,22 +70,25 @@ body {
   display: grid;
   justify-items: center;
   grid-gap: 1rem;
-  position: relative;
 }
 
 .todo-lists {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
+  width: 90%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-grid-columns: (minmax(150px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   grid-gap: 0.5rem;
 }
 
 .add-btn {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
-.todo-list {
-  border: 1px solid #000;
+.footer {
+  position: relative;
+  top: 200px;
 }
 /*# sourceMappingURL=main.css.map */
