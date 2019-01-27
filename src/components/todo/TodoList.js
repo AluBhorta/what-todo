@@ -1,18 +1,30 @@
 import React, { Component } from "react";
+import AddButton from "../AddButton";
+import ListItem from "./ListItem";
+import AddItemForm from "./AddItemForm";
 
 class TodoList extends Component {
-  render() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listTitle: props.title,
+      listItems: [],
+      displayForm: false
+    };
+  }
+
+  handleAddListItem = e => {
+    console.log("adding list item");
+  };
+
+  render(props) {
     return (
       <div className="todo-list">
-        <h1>Todo List</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At fuga,
-          animi recusandae voluptates beatae eius saepe nostrum inventore quidem
-          deleniti, non placeat assumenda eaque nisi ullam. Sapiente
-          necessitatibus alias modi!
-        </p>
+        <h1>Todo List: {this.state.listTitle}</h1>
+        <AddButton handleAddListItem={this.handleAddListItem} />
       </div>
     );
   }
 }
+
 export default TodoList;

@@ -1,0 +1,18 @@
+// component classes like HEADERS, FOOTERS, BTN, CARDS, COMMENTS, ...
+@import "./base";
+
+.add-btn {
+  border-radius: 50%;
+}
+
+.item-add-btn {
+  background-color: gray;
+}
+
+.todo-lists {
+  background-color: lighten($color: $main-color, $amount: 20);
+}
+
+.list-item {
+  border: 1px grey solid;
+}

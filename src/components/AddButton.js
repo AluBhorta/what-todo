@@ -1,10 +1,14 @@
 import React from "react";
 
-function AddButton() {
+function AddButton(props) {
+  const { handleAddNewList, handleAddListItem } = props;
   return (
-    <div className="add-btn">
-      <button> + </button>
-    </div>
+    <button
+      className="add-btn"
+      onClick={handleAddNewList ? handleAddNewList : handleAddListItem}
+    >
+      {` + `}
+    </button>
   );
 }
 

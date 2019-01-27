@@ -1,0 +1,27 @@
+// handles the overall layout of the web page such as container and grid systems.
+@import "./base";
+
+body {
+  display: grid;
+}
+
+.app {
+  display: grid;
+  justify-items: center;
+  grid-gap: 1rem;
+  position: relative;
+}
+
+.todo-lists {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 0.5rem;
+}
+
+.add-btn {
+  font-size: 2rem;
+}
+
+.todo-list {
+  border: 1px solid #000;
+}
