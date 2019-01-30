@@ -1,0 +1,20 @@
+// Router Test styles
+.header li {
+  display: inline;
+  margin: 0 3rem;
+}
+.active-header {
+  text-decoration: overline underline;
+}
+.links {
+  padding: 6px 10px;
+  background-color: #666;
+  color: #fff;
+  border-radius: 40px;
+  transition: ease-out 200ms;
+
+  &:hover {
+    background-color: #fff;
+    color: #666;
+  }
+}

@@ -28,21 +28,22 @@ class App extends Component {
 
   render() {
     const todoLists = this.state.todoLists.map(list => (
-      <div className="todo-list">{list.props.title}</div>
+      <div className="todo-list-thumbnail">{list.props.title}</div>
     ));
 
     return (
       <div className="app">
-        {/* <Header />
-        {this.state.displayAddListModal ? (
-          <AddListForm handleListTitle={this.handleListTitle} />
-        ) : (
-          <AddButton handleAddNewList={this.handleAddNewList} />
-        )}
-
+        <Header />
+        <div className="add-list-btn">
+          {this.state.displayAddListModal ? (
+            <AddListForm handleListTitle={this.handleListTitle} />
+          ) : (
+            <AddButton handleAddNewList={this.handleAddNewList} />
+          )}
+        </div>
         <div className="todo-lists">{todoLists}</div>
-        <Footer /> */}
-        <RouterTest />
+        <Footer />
+        {/* <RouterTest /> */}
       </div>
     );
   }

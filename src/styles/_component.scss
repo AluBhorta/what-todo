@@ -1,22 +1,44 @@
 // component classes like HEADERS, FOOTERS, BTN, CARDS, COMMENTS, ...
 @import "./base";
 
+// header
+.header {
+  background-color: $dark-grey-color;
+  color: $white-color;
+}
+
+// add-btn
 .add-btn {
   border-radius: 50%;
 }
 
-.item-add-btn {
-  background-color: gray;
+.add-list-btn {
+  background-color: $light-grey-color;
+  border-bottom: 1px solid #000;
 }
 
+.add-btn {
+  background-color: $white-color;
+}
+
+// todo-lists
 .todo-lists {
-  background-color: lighten($color: $main-color, $amount: 20);
+  background-color: $light-grey-color;
 }
 
-.todo-list {
+.todo-list-thumbnail {
   border: 1px solid #000;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  background-color: $main-color;
 }
 
 .list-item {
   border: 1px grey solid;
+}
+
+// footer
+.footer {
+  background-color: $dark-grey-color;
+  color: $white-color;
 }

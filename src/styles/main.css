@@ -1,94 +1,147 @@
-*,
-*::before,
-*::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat, -apple-system, "Helvetica Neue", sans-serif;
 }
 
 body,
 html {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: Montserrat, -apple-system, "Helvetica Neue", sans-serif;
 }
 
-*,
-*::before,
-*::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body,
-html {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+.header {
+  background-color: #4d4d4d;
+  color: #fff;
 }
 
 .add-btn {
   border-radius: 50%;
 }
 
-.item-add-btn {
-  background-color: gray;
+.add-list-btn {
+  background-color: #ccc;
+  border-bottom: 1px solid #000;
+}
+
+.add-btn {
+  background-color: #fff;
 }
 
 .todo-lists {
-  background-color: #8679d5;
+  background-color: #ccc;
 }
 
-.todo-list {
+.todo-list-thumbnail {
   border: 1px solid #000;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  background-color: #45379291;
 }
 
 .list-item {
   border: 1px grey solid;
 }
 
-*,
-*::before,
-*::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+.footer {
+  background-color: #4d4d4d;
+  color: #fff;
 }
 
 body,
 html {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-}
-
-body {
-  display: -ms-grid;
-  display: grid;
+  font-family: Montserrat, -apple-system, "Helvetica Neue", sans-serif;
 }
 
 .app {
   display: -ms-grid;
   display: grid;
+  min-height: 100vh;
+}
+
+.header {
+  min-height: 12vh;
+  display: -ms-grid;
+  display: grid;
   justify-items: center;
-  grid-gap: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.add-list-btn {
+  min-height: 5vh;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.add-list-form {
+  padding: 2rem;
 }
 
 .todo-lists {
+  min-height: 65vh;
   display: -ms-grid;
   display: grid;
-  width: 90%;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  padding: 2rem;
   -ms-grid-columns: (minmax(150px, 1fr))[auto-fill];
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   grid-gap: 0.5rem;
 }
 
-.add-btn {
-  font-size: 1rem;
+.todo-list-thumbnail {
+  min-height: 50px;
+  max-height: 100px;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .footer {
-  position: relative;
-  top: 200px;
+  min-height: 6vh;
+  padding: 10px;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header li {
+  display: inline;
+  margin: 0 3rem;
+}
+
+.active-header {
+  text-decoration: overline underline;
+}
+
+.links {
+  padding: 6px 10px;
+  background-color: #666;
+  color: #fff;
+  border-radius: 40px;
+  -webkit-transition: ease-out 200ms;
+  transition: ease-out 200ms;
+}
+
+.links:hover {
+  background-color: #fff;
+  color: #666;
 }
 /*# sourceMappingURL=main.css.map */

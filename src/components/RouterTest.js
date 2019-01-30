@@ -1,23 +1,32 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
-
-const Home = p => <div>Home</div>;
+const Home = p => <h1>Home</h1>;
 const Topic = ({ match }) => (
   <div>
-    <h3>{match.params.id}</h3>
+    <h1>{match.params.id}</h1>
   </div>
 );
+const RegexComponent = ({ match }) => (
+  <div>
+    <strong>The Order is:</strong> {match.params.order}
+  </div>
+);
+
 const Topics = ({ match }) => {
   return (
     <div>
-      <h2>Topics</h2>
+      <h1>Topics</h1>
       <ul>
         <li>
-          <Link to={`${match.path}/topic1`}>Topic 1</Link>
+          <NavLink to={`${match.url}/topic1`} className="links">
+            Topic 1
+          </NavLink>
         </li>
         <li>
-          <Link to={`${match.path}/topic2`}>Topic 2</Link>
+          <NavLink to={`${match.url}/topic2`} className="links">
+            Topic 2
+          </NavLink>
         </li>
       </ul>
 
@@ -38,19 +47,34 @@ class RouterTest extends Component {
     return (
       <div className="router-test">
         <Router>
-          <div>
+          <div className="header">
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <NavLink
+                  exact
+                  activeClassName="active-header"
+                  to="/"
+                  className="links"
+                >
+                  Home
+                </NavLink>
               </li>
               <li>
-                <Link to="/topics">Topics</Link>
+                <NavLink
+                  exact
+                  activeClassName="active-header"
+                  to="/topics"
+                  className="links"
+                >
+                  Topics
+                </NavLink>
               </li>
             </ul>
             <hr />
 
             <Route exact path="/" component={Home} />
             <Route path="/topics" component={Topics} />
+            <Route path={`/:order(asc|desc)`} component={RegexComponent} />
           </div>
         </Router>
       </div>

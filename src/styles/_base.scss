@@ -1,21 +1,22 @@
 // variables - typography, color, border, font-size, media-query-breakpoints, animation-durations, ...  //
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 // FONTS
-$font-fam: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$font-fam: Montserrat, -apple-system, "Helvetica Neue", sans-serif;
 
 // COLORS
-$main-color: #4937b1;
+$main-color: #45379291;
 $white-color: #fff;
 $light-grey-color: #ccc;
-$black: #000;
+$black-color: #000;
+$dark-grey-color: #4d4d4d;
 
 // RESETS
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+// *,
+// *::before,
+// *::after {
+//   // box-sizing: border-box;
+// }
 
 body,
 html {
@@ -23,7 +24,6 @@ html {
   padding: 0;
   font-family: $font-fam;
 }
-
 // MIXINS
 
 // FUNCTIONS

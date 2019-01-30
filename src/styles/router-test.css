@@ -1,0 +1,23 @@
+.header li {
+  display: inline;
+  margin: 0 3rem;
+}
+
+.active-header {
+  text-decoration: overline underline;
+}
+
+.links {
+  padding: 6px 10px;
+  background-color: #666;
+  color: #fff;
+  border-radius: 40px;
+  -webkit-transition: ease-out 200ms;
+  transition: ease-out 200ms;
+}
+
+.links:hover {
+  background-color: #fff;
+  color: #666;
+}
+/*# sourceMappingURL=router-test.css.map */
