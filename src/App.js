@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import RouterTest from "./components/RouterTest";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -53,7 +52,10 @@ class App extends Component {
                   />
                 )}
               />
-              <Route path={`/:listTitle`} component={() => <TodoList />} />
+              <Route
+                path={`/:listTitle`}
+                component={({ match }) => <div> HI {console.log(match)}</div>}
+              />
             </Switch>
           </div>
         </Router>
