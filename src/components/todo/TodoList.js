@@ -8,7 +8,7 @@ class TodoList extends Component {
     super(props);
 
     this.state = {
-      listTitle: props.match.params.listTitle,
+      listTitle: props.title,
       listItems: [],
       displayAddItemForm: false
     };

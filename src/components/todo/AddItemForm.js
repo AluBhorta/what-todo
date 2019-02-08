@@ -36,6 +36,7 @@ class AddItemForm extends Component {
             value={this.state.itemTitle}
             onChange={this.handleChange}
             placeholder="Enter item title"
+            autoFocus={true}
           />
           <label>Item Priority: {this.state.itemPriority}</label>
           <input

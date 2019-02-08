@@ -1,16 +1,21 @@
 import React, { Component } from "react";
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TodoList from "./components/todo/TodoList";
 import Dashboard from "./components/Dashboard";
 
 class App extends Component {
-  state = {
-    todoLists: [],
-    displayAddListForm: false
+  constructor() {
+    super();
+    this.state = {
+      todoLists: [],
+      displayAddListForm: false
+    };
+  }
+
+  componentDidMount = () => {
+    console.log("app mounted");
   };
 
   handleAddNewList = e => {
@@ -28,13 +33,21 @@ class App extends Component {
 
   handleThumbnailClick = e => {
     const { title } = e.target;
-    console.log("handling thumb click", title);
+    console.log("handling thumbnail click of", title);
+
+    const todoList = this.state.todoLists.find(list => {
+      return list.props.title === title;
+    });
+  };
+
+  handleSaveProgress = e => {
+    console.log("saving progress");
   };
 
   render() {
     return (
       <div className="app">
-        <Header />
+        <Header handleSaveProgress={this.handleSaveProgress} />
 
         <Router>
           <div>
@@ -54,7 +67,17 @@ class App extends Component {
               />
               <Route
                 path={`/:listTitle`}
-                component={({ match }) => <div> HI {console.log(match)}</div>}
+                component={({ match }) => {
+                  const urlTitle = match.params.listTitle;
+                  const todoList = this.state.todoLists.find(list => {
+                    return list.props.title === urlTitle;
+                  });
+                  return todoList ? (
+                    <TodoList title={urlTitle} />
+                  ) : (
+                    <h1>Error 404, no such list named "{urlTitle}" found</h1>
+                  );
+                }}
               />
             </Switch>
           </div>

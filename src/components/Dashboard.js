@@ -6,13 +6,13 @@ import AllListThumbnails from "./todo/AllListThumbnails";
 function Dashboard({
   handleListTitle,
   handleAddNewList,
-  todoLists,
   handleThumbnailClick,
+  todoLists,
   displayAddListForm
 }) {
   return (
     <div className="dashboard">
-      {/* add-list-btn */}
+      {/* add-list-btn / add-list-form */}
       <div className="add-list-btn">
         {displayAddListForm ? (
           <AddListForm handleListTitle={handleListTitle} />
