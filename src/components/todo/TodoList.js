@@ -6,8 +6,9 @@ import AddItemForm from "./AddItemForm";
 class TodoList extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      listTitle: props.title,
+      listTitle: props.match.params.listTitle,
       listItems: [],
       displayAddItemForm: false
     };
@@ -34,14 +35,13 @@ class TodoList extends Component {
     const listItems = this.state.listItems;
     return (
       <div className="todo-list">
-        <h1>{this.state.listTitle}</h1>
+        <h1>Title: {this.state.listTitle}</h1>
 
         {this.state.displayAddItemForm ? (
           <AddItemForm handleListItem={this.handleListItem} />
         ) : (
           <AddButton handleAddNewListItem={this.handleAddNewListItem} />
         )}
-
         <div className="list-items">{listItems}</div>
       </div>
     );

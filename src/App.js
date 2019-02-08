@@ -1,22 +1,21 @@
 import React, { Component } from "react";
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import RouterTest from "./components/RouterTest";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import AddButton from "./components/AddButton";
 import TodoList from "./components/todo/TodoList";
-import AddListForm from "./components/todo/AddListForm";
+import Dashboard from "./components/Dashboard";
 
 class App extends Component {
   state = {
     todoLists: [],
-    displayAddListModal: false
+    displayAddListForm: false
   };
 
   handleAddNewList = e => {
-    this.setState({ displayAddListModal: true });
+    this.setState({ displayAddListForm: true });
   };
 
   handleListTitle = title => {
@@ -25,27 +24,41 @@ class App extends Component {
       prevState.todoLists.push(<TodoList key={id} title={title} />);
       return prevState;
     });
-    this.setState({ displayAddListModal: false });
+    this.setState({ displayAddListForm: false });
+  };
+
+  handleThumbnailClick = e => {
+    const { title } = e.target;
+    console.log("handling thumb click", title);
   };
 
   render() {
-    const todoLists = this.state.todoLists.map(list => (
-      <div className="todo-list-thumbnail">{list.props.title}</div>
-    ));
-
     return (
       <div className="app">
         <Header />
-        <div className="add-list-btn">
-          {this.state.displayAddListModal ? (
-            <AddListForm handleListTitle={this.handleListTitle} />
-          ) : (
-            <AddButton handleAddNewList={this.handleAddNewList} />
-          )}
-        </div>
-        <div className="todo-lists">{todoLists}</div>
+
+        <Router>
+          <div>
+            <Switch>
+              <Route
+                exact
+                path="/"
+                component={() => (
+                  <Dashboard
+                    handleListTitle={this.handleListTitle}
+                    handleAddNewList={this.handleAddNewList}
+                    todoLists={this.state.todoLists}
+                    handleThumbnailClick={this.handleThumbnailClick}
+                    displayAddListForm={this.state.displayAddListForm}
+                  />
+                )}
+              />
+              <Route path={`/:listTitle`} component={() => <TodoList />} />
+            </Switch>
+          </div>
+        </Router>
+
         <Footer />
-        {/* <RouterTest /> */}
       </div>
     );
   }
