@@ -15,7 +15,14 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    console.log("app mounted");
+    fetch("http://localhost:4000/")
+      .then(req => console.log(req))
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
+  };
+
+  handleSaveProgress = e => {
+    console.log("saving progress");
   };
 
   handleAddNewList = e => {
@@ -34,14 +41,6 @@ class App extends Component {
   handleThumbnailClick = e => {
     const { title } = e.target;
     console.log("handling thumbnail click of", title);
-
-    const todoList = this.state.todoLists.find(list => {
-      return list.props.title === title;
-    });
-  };
-
-  handleSaveProgress = e => {
-    console.log("saving progress");
   };
 
   render() {

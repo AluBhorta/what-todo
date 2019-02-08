@@ -1,32 +1,22 @@
 const http = require("http");
 const fs = require("fs");
 
-class Cunt {
-  constructor() {
-    this.cuntName = "cn";
-    this.voice = "ggwp";
-    this.attr = ["holy", "fucking ", "crap"];
-  }
-  fuckOff(params) {
-    return "fuckoff" + params;
-  }
-}
+const state = fs.readFileSync("state.txt", "utf8");
 
-const data = {
-  name: "fer",
-  dob: "3-1-97",
-  sayHi: value => {
-    console.log(value);
-  },
-  friend: new Cunt()
-};
+const server = http.createServer((req, res) => {
+  console.log(`Request was made to: ${req.url}`);
+  res.writeHead(200, { "Content-Type": "application/json" });
+  res.write(state);
+  res.end();
+});
+server.listen(4000);
 
-// console.log(data.friend);
+console.log("Ayy dowgs, listening on port 4000");
 
-fs.writeFileSync("state.txt", JSON.stringify(data), "utf8", () =>
-  console.log("written")
-);
+// fs.writeFileSync("state.txt", JSON.stringify(data), "utf8", () =>
+//   console.log("written")
+// );
 
-const out = fs.readFileSync("state.txt", "utf8");
+// const out = fs.readFileSync("state.txt", "utf8");
 
-console.log(out);
+// console.log(out);
