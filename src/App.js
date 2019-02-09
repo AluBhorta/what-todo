@@ -17,16 +17,20 @@ class App extends Component {
 
   componentDidMount = () => {
     axios
-      .get("http://localhost:4000/")
+      .get("http://localhost:4000/data")
       .then(res => {
-        console.log("data: ", res);
         this.setState({ todoLists: res.data });
       })
       .catch(err => console.log(err));
   };
 
   handleSaveProgress = e => {
-    console.log("saving progress", this.state.todoLists);
+    axios
+      .put("http://localhost:4000/update", {
+        payload: JSON.stringify(this.state.todoLists)
+      })
+      .then(res => console.log("handling save progress: ", res))
+      .catch(err => console.log(err));
   };
 
   handleListTitle = title => {
