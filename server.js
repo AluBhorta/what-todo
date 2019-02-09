@@ -27,7 +27,3 @@ app.put("/update", (req, res) => {
 });
 
 app.listen(port, () => console.log("Ayy dowgs, listening on port: " + port));
-
-// fs.writeFileSync("state.txt", JSON.stringify(data), "utf8", () =>
-//   console.log("written")
-// );

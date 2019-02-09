@@ -29,7 +29,7 @@ class App extends Component {
       .put("http://localhost:4000/update", {
         payload: JSON.stringify(this.state.todoLists)
       })
-      .then(res => console.log("handling save progress: ", res))
+      .then(res => console.log("saved new state: ", res.data))
       .catch(err => console.log(err));
   };
 
@@ -63,6 +63,7 @@ class App extends Component {
         <Router>
           <div>
             <Header handleSaveProgress={this.handleSaveProgress} />
+
             <Switch>
               <Route
                 exact
@@ -77,6 +78,7 @@ class App extends Component {
                   />
                 )}
               />
+
               <Route
                 path={`/:listTitle`}
                 component={({ match }) => {
