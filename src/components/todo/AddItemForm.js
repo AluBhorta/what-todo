@@ -41,8 +41,8 @@ class AddItemForm extends Component {
           <label>Item Priority: {this.state.itemPriority}</label>
           <input
             type="range"
-            min={1}
-            max={10}
+            min={0}
+            max={9}
             name="itemPriority"
             value={this.state.itemPriority}
             onChange={this.handleChange}

@@ -9,7 +9,7 @@ class TodoList extends Component {
 
     this.state = {
       listTitle: props.title,
-      listItems: [],
+      listItems: props.todoItems,
       displayAddItemForm: false
     };
   }
@@ -21,10 +21,15 @@ class TodoList extends Component {
   handleListItem = (willAddNewItem, itemTitle, itemPriority) => {
     if (willAddNewItem) {
       this.setState(prevState => {
-        const id = prevState.listItems.length;
-        prevState.listItems.push(
-          <ListItem key={id} title={itemTitle} priority={itemPriority} />
-        );
+        const id = prevState.listItems.length + 1;
+        // prevState.listItems.push(
+        //   <ListItem key={id} title={itemTitle} priority={itemPriority} />
+        // );
+        prevState.listItems.push({
+          id: id,
+          title: itemTitle,
+          priority: itemPriority
+        });
         return prevState;
       });
     }
@@ -32,7 +37,10 @@ class TodoList extends Component {
   };
 
   render(props) {
-    const listItems = this.state.listItems;
+    const listItems = this.state.listItems.map(item => (
+      <ListItem key={item.id} title={item.title} priority={item.priority} />
+    ));
+
     return (
       <div className="todo-list">
         <h1>Title: {this.state.listTitle}</h1>
