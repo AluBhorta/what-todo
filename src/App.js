@@ -10,7 +10,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      todoLists2: [],
+      todoLists: [],
       displayAddListForm: false
     };
   }
@@ -19,21 +19,21 @@ class App extends Component {
     axios
       .get("http://localhost:4000/")
       .then(res => {
-        console.log("data: ", res.data);
-        this.setState({ todoLists2: res.data });
+        console.log("data: ", res);
+        this.setState({ todoLists: res.data });
       })
       .catch(err => console.log(err));
   };
 
   handleSaveProgress = e => {
-    console.log("saving progress");
+    console.log("saving progress", this.state.todoLists);
   };
 
   handleListTitle = title => {
     this.setState(prevState => {
-      const id = prevState.todoLists2.length + 1;
+      const id = prevState.todoLists.length + 1;
 
-      prevState.todoLists2.push({
+      prevState.todoLists.push({
         id: id,
         title: title,
         todoItems: []
@@ -56,10 +56,9 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Header handleSaveProgress={this.handleSaveProgress} />
-
         <Router>
           <div>
+            <Header handleSaveProgress={this.handleSaveProgress} />
             <Switch>
               <Route
                 exact
@@ -69,7 +68,7 @@ class App extends Component {
                     handleListTitle={this.handleListTitle}
                     handleAddNewList={this.handleAddNewList}
                     handleThumbnailClick={this.handleThumbnailClick}
-                    todoLists2={this.state.todoLists2}
+                    todoLists={this.state.todoLists}
                     displayAddListForm={this.state.displayAddListForm}
                   />
                 )}
@@ -78,7 +77,7 @@ class App extends Component {
                 path={`/:listTitle`}
                 component={({ match }) => {
                   const urlTitle = match.params.listTitle;
-                  const todoList = this.state.todoLists2.find(list => {
+                  const todoList = this.state.todoLists.find(list => {
                     return list.title === urlTitle;
                   });
                   return todoList ? (

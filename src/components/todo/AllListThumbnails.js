@@ -1,10 +1,10 @@
 import React from "react";
 import ListThumbnail from "./ListThumbnail";
 
-function AllListThumbnails({ todoLists2, handleThumbnailClick }) {
-  const listThumbnails2 = todoLists2.map((list, index) => (
+function AllListThumbnails({ todoLists, handleThumbnailClick }) {
+  const listThumbnails2 = todoLists.map((list, index) => (
     <ListThumbnail
-      key={index + console.log(list)}
+      key={index}
       handleThumbnailClick={handleThumbnailClick}
       title={list.title}
     />

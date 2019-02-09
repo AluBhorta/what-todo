@@ -15,8 +15,8 @@ all the lorems.
 - list items sorted by priority or chronologically
 - auth/login for the app use (google/fb/...)
 
-> Save progress onto a file
+> Save progress onto a file - onClick of "Save Progress", save the App.state onto a file
 
-- save todoLists from App.state to a file "what-todo" on SAVE btnClick
-- on first load (i.e. constructor), load lists from file
--
+- onClick of "Save Progress", perform a http:put request to backend with the data i.e. App.state
+- update the file "state.json"
+- log to server console on success/error

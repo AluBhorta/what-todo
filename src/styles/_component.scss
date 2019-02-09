@@ -5,6 +5,13 @@
 .header {
   background-color: $dark-grey-color;
   color: $white-color;
+  a {
+    text-decoration: none;
+    color: $white-color;
+  }
+  a:hover {
+    color: $orangy-color;
+  }
 }
 
 // add-btn

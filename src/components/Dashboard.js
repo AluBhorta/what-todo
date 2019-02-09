@@ -7,7 +7,7 @@ function Dashboard({
   handleListTitle,
   handleAddNewList,
   handleThumbnailClick,
-  todoLists2,
+  todoLists,
   displayAddListForm
 }) {
   return (
@@ -22,7 +22,7 @@ function Dashboard({
       </div>
 
       <AllListThumbnails
-        todoLists2={todoLists2}
+        todoLists={todoLists}
         handleThumbnailClick={handleThumbnailClick}
       />
     </div>

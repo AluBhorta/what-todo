@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header({ handleSaveProgress }) {
   return (
@@ -6,7 +7,9 @@ function Header({ handleSaveProgress }) {
       <button onClick={handleSaveProgress} className="save-progress-btn btn">
         Save Progress
       </button>
-      <h1>What Todo?</h1>
+      <h1>
+        <Link to="/">What Todo?</Link>
+      </h1>
     </div>
   );
 }

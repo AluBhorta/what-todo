@@ -20,6 +20,15 @@ html {
   color: #fff;
 }
 
+.header a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.header a:hover {
+  color: #ff7f50;
+}
+
 .add-btn {
   border-radius: 50%;
 }
