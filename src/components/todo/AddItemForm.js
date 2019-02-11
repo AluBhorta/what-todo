@@ -18,6 +18,7 @@ class AddItemForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { itemTitle, handleListItem, itemPriority } = this.state;
+
     itemTitle
       ? handleListItem(true, itemTitle, itemPriority)
       : alert("Please insert a valid Item Title.");

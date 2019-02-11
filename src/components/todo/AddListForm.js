@@ -17,9 +17,15 @@ class AddListForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { listTitle, handleListTitle } = this.state;
-    listTitle
-      ? handleListTitle(listTitle)
-      : alert("Please insert a valid List Title.");
+
+    const invalidChars = /[.,'"`*+?$^{}()|[\]\\]/;
+    if (!listTitle || listTitle.match(invalidChars)) {
+      alert(
+        `Please insert a valid List Title. \nInvalid characters: .',"\`*+?$^{}()|[]`
+      );
+    } else {
+      handleListTitle(listTitle);
+    }
   };
 
   render() {
@@ -35,6 +41,7 @@ class AddListForm extends Component {
             placeholder="Enter list title"
             autoFocus={true}
           />
+
           <button>Add New List</button>
         </form>
       </div>

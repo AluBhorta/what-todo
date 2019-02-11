@@ -4,7 +4,6 @@ An app that let's you handle multiple (todo) lists. (+ all the lorems)
 
 ## Prospective Features (i.e. to implement)
 
-- reject non empty list title name
 - convert the listTitles to -> lowercase and dashes (for space) to use as the "/:url"
 - ensure unique list title names (using '(...|...)' regex)
 - priority buttons (up & down) for the list items

@@ -34,17 +34,25 @@ class App extends Component {
   };
 
   handleListTitle = title => {
-    this.setState(prevState => {
-      const id = prevState.todoLists.length + 1;
+    // check if a list with a listTitle === 'title' already exists!
 
-      prevState.todoLists.push({
-        id: id,
-        title: title,
-        todoItems: []
-      });
-
-      return prevState;
+    const matchesTitle = this.state.todoLists.find(list => {
+      return list.title === title;
     });
+
+    matchesTitle
+      ? alert(`List named ${title} already exists!`)
+      : this.setState(prevState => {
+          const id = prevState.todoLists.length + 1;
+
+          prevState.todoLists.push({
+            id: id,
+            title: title,
+            todoItems: []
+          });
+
+          return prevState;
+        });
     this.setState({ displayAddListForm: false });
   };
 
@@ -55,6 +63,7 @@ class App extends Component {
   handleThumbnailClick = e => {
     const { title } = e.target;
     console.log("handling thumbnail click of", title);
+    console.log("lists in state: ", this.state.todoLists);
   };
 
   render() {
@@ -84,7 +93,8 @@ class App extends Component {
                 component={({ match }) => {
                   const urlTitle = match.params.listTitle;
                   const todoList = this.state.todoLists.find(list => {
-                    return list.title === urlTitle;
+                    const linkTitle = list.title.replace(/ /g, "-");
+                    return linkTitle === urlTitle;
                   });
                   return todoList ? (
                     <TodoList title={urlTitle} todoItems={todoList.todoItems} />
