@@ -17,7 +17,9 @@ class AddListForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { listTitle, handleListTitle } = this.state;
-    handleListTitle(listTitle);
+    listTitle
+      ? handleListTitle(listTitle)
+      : alert("Please insert a valid List Title.");
   };
 
   render() {

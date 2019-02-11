@@ -43,7 +43,7 @@ class TodoList extends Component {
 
     return (
       <div className="todo-list">
-        <h1>Title: {this.state.listTitle}</h1>
+        <h2>List Name: {this.state.listTitle}</h2>
 
         {this.state.displayAddItemForm ? (
           <AddItemForm handleListItem={this.handleListItem} />

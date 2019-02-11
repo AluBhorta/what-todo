@@ -10,7 +10,7 @@ function ListThumbnail(props) {
       title={title}
     >
       <Link to={"/" + title}>
-        <h3>Title: {title ? title : "no title"}</h3>
+        <h3>{title ? title : "no title"}</h3>
       </Link>
     </div>
   );

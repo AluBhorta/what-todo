@@ -4,10 +4,9 @@ function ListItem(props) {
   const { priority, title } = props;
   return (
     <div className="list-item">
-      <h3>List Item</h3>
-      Priority: {priority}
+      <strong>Todo Item</strong>: {title}
       <br />
-      Title: {title}
+      Priority: {priority}
     </div>
   );
 }
