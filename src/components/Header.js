@@ -8,7 +8,9 @@ function Header({ handleSaveProgress }) {
         Save Progress
       </button>
       <h1>
-        <Link to="/">What Todo?</Link>
+        <Link to="/" className="brand-logo">
+          What Todo?
+        </Link>
       </h1>
     </div>
   );

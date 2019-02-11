@@ -11,9 +11,15 @@ function ListThumbnail(props) {
       onClick={handleThumbnailClick}
       title={title}
     >
-      <Link to={"/" + linkTitle}>
+      <Link to={"/" + linkTitle} className="list-thumbnail-link">
         <h3>{title}</h3>
       </Link>
+      <span
+        className="thumbnail-edit"
+        onClick={console.log("open modal to edit/delete a list")}
+      >
+        {" : : "}
+      </span>
     </div>
   );
 }

@@ -23,14 +23,29 @@ html {
 .header a {
   text-decoration: none;
   color: #fff;
+  background-color: coral;
+  padding: 10px 15px;
+  border-radius: 16px;
 }
 
 .header a:hover {
+  background-color: #1a1a1a;
   color: #ff7f50;
+  -webkit-transition: 100ms ease-in-out;
+  transition: 100ms ease-in-out;
 }
 
 .add-btn {
   border-radius: 50%;
+  background-color: #1a1a1a;
+  color: #ff7f50;
+}
+
+.add-btn:hover {
+  background-color: #ff7f50;
+  color: #1a1a1a;
+  -webkit-transition: 100ms ease-in-out;
+  transition: 100ms ease-in-out;
 }
 
 .add-list-btn {
@@ -38,19 +53,55 @@ html {
   border-bottom: 1px solid #000;
 }
 
-.add-btn {
-  background-color: #fff;
-}
-
 .todo-lists {
   background-color: #ccc;
 }
 
-.todo-list-thumbnail {
-  border: 1px solid #000;
-  text-overflow: ellipsis;
+.todo-lists .todo-list-thumbnail {
   overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #000;
+}
+
+.todo-lists .list-thumbnail-link {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
   background-color: #45379291;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.todo-lists .list-thumbnail-link:hover {
+  color: #ccc;
+  background-color: #4d4d4d;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+}
+
+.todo-lists .thumbnail-edit {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background-color: #45379291;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.todo-lists .thumbnail-edit:hover {
+  background-color: #ccc;
+  color: #45379291;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+}
+
+.list-header {
+  padding: 1rem;
 }
 
 .list-item {
@@ -118,6 +169,25 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.list-header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5fr 1fr;
+      grid-template-columns: 5fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.list-item {
+  padding: 0.5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 6fr 1fr;
+      grid-template-columns: 1fr 6fr 1fr;
+  grid-gap: 5px;
 }
 
 .footer {

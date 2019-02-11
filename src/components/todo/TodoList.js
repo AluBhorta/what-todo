@@ -43,14 +43,22 @@ class TodoList extends Component {
 
     return (
       <div className="todo-list">
-        <h2>List Name: {this.state.listTitle}</h2>
+        <div className="list-header">
+          <h2>List Name: {this.state.listTitle}</h2>
+          <div className="list-edit-btns">
+            <button>Edit List</button>
+            <button>Delete List</button>
+          </div>
+        </div>
 
-        {this.state.displayAddItemForm ? (
-          <AddItemForm handleListItem={this.handleListItem} />
-        ) : (
-          <AddButton handleAddNewListItem={this.handleAddNewListItem} />
-        )}
-        <div className="list-items">{listItems}</div>
+        <div className="list-body">
+          {this.state.displayAddItemForm ? (
+            <AddItemForm handleListItem={this.handleListItem} />
+          ) : (
+            <AddButton handleAddNewListItem={this.handleAddNewListItem} />
+          )}
+          <div className="list-items">{listItems}</div>
+        </div>
       </div>
     );
   }

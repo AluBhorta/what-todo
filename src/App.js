@@ -34,14 +34,12 @@ class App extends Component {
   };
 
   handleListTitle = title => {
-    // check if a list with a listTitle === 'title' already exists!
-
-    const matchesTitle = this.state.todoLists.find(list => {
+    const titleExists = this.state.todoLists.find(list => {
       return list.title === title;
     });
 
-    matchesTitle
-      ? alert(`List named ${title} already exists!`)
+    titleExists
+      ? alert(`List named '${title}' already exists!`)
       : this.setState(prevState => {
           const id = prevState.todoLists.length + 1;
 

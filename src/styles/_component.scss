@@ -8,15 +8,29 @@
   a {
     text-decoration: none;
     color: $white-color;
-  }
-  a:hover {
-    color: $orangy-color;
+
+    background-color: lighten($orangy-color, 0);
+    padding: 10px 15px;
+    border-radius: 16px;
+
+    &:hover {
+      background-color: darken($dark-grey-color, 20);
+      color: $orangy-color;
+      transition: 100ms ease-in-out;
+    }
   }
 }
 
 // add-btn
 .add-btn {
   border-radius: 50%;
+  background-color: darken($dark-grey-color, 20);
+  color: $orangy-color;
+  &:hover {
+    background-color: $orangy-color;
+    color: darken($dark-grey-color, 20);
+    transition: 100ms ease-in-out;
+  }
 }
 
 .add-list-btn {
@@ -24,20 +38,54 @@
   border-bottom: 1px solid #000;
 }
 
-.add-btn {
-  background-color: $white-color;
-}
-
 // todo-lists
 .todo-lists {
   background-color: $light-grey-color;
+
+  .todo-list-thumbnail {
+    // background-color: $main-color;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #000;
+  }
+
+  .list-thumbnail-link {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    background-color: $main-color;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+    &:hover {
+      color: $light-grey-color;
+      background-color: $dark-grey-color;
+      transition: 200ms ease-in-out;
+    }
+  }
+
+  .thumbnail-edit {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+
+    text-align: center;
+    background-color: $main-color;
+    color: $light-grey-color;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $light-grey-color;
+      color: $main-color;
+      transition: 200ms ease-in-out;
+    }
+    // right: 10px;
+  }
 }
 
-.todo-list-thumbnail {
-  border: 1px solid #000;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  background-color: $main-color;
+.list-header {
+  padding: 1rem;
 }
 
 .list-item {
