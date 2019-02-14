@@ -26,6 +26,8 @@
   border-radius: 50%;
   background-color: darken($dark-grey-color, 20);
   color: $orangy-color;
+  border: 0;
+
   &:hover {
     background-color: $orangy-color;
     color: darken($dark-grey-color, 20);

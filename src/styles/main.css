@@ -39,6 +39,7 @@ html {
   border-radius: 50%;
   background-color: #1a1a1a;
   color: #ff7f50;
+  border: 0;
 }
 
 .add-btn:hover {

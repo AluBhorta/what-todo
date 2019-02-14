@@ -29,7 +29,7 @@ class App extends Component {
       .put("http://localhost:4000/update", {
         payload: JSON.stringify(this.state.todoLists)
       })
-      .then(res => console.log("saved new state: ", res.data))
+      .then(res => console.log("saved new state successfully: ", res.data))
       .catch(err => console.log(err));
   };
 
@@ -59,9 +59,37 @@ class App extends Component {
   };
 
   handleThumbnailClick = e => {
-    const { title } = e.target;
-    console.log("handling thumbnail click of", title);
-    console.log("lists in state: ", this.state.todoLists);
+    // const { title } = e.target;
+    // console.log("handling thumbnail click of", title);
+    console.log("Lists in state: ", this.state.todoLists);
+  };
+
+  handlePlusPriority = (listId, itemId, prevPriority) => {
+    // if prevPri < 10, then pri++
+    if (prevPriority < 10) {
+      this.setState(prevState => {
+        prevState.todoLists[listId - 1].todoItems[itemId - 1].priority++;
+        return prevState;
+      });
+    } else {
+      alert("Max priority is 10, unfortunately");
+    }
+    // else alert max pri == 10
+  };
+
+  handleMinusPriority = (listId, itemId, prevPriority) => {
+    // if prevPri > 1, then pri--
+
+    // else alert min pri == 1
+
+    if (prevPriority > 1) {
+      this.setState(prevState => {
+        prevState.todoLists[listId - 1].todoItems[itemId - 1].priority--;
+        return prevState;
+      });
+    } else {
+      alert("Min priority is 1, unfortunately");
+    }
   };
 
   render() {
@@ -94,8 +122,15 @@ class App extends Component {
                     const linkTitle = list.title.replace(/ /g, "-");
                     return linkTitle === urlTitle;
                   });
+
                   return todoList ? (
-                    <TodoList title={urlTitle} todoItems={todoList.todoItems} />
+                    <TodoList
+                      title={urlTitle}
+                      todoItems={todoList.todoItems}
+                      handlePlusPriority={this.handlePlusPriority}
+                      handleMinusPriority={this.handleMinusPriority}
+                      listId={todoList.id}
+                    />
                   ) : (
                     <h1>Error 404, no such list named "{urlTitle}" found</h1>
                   );

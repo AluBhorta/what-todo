@@ -6,12 +6,14 @@ import AddItemForm from "./AddItemForm";
 class TodoList extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
+      listId: props.listId,
       listTitle: props.title,
       listItems: props.todoItems,
       displayAddItemForm: false
     };
+    this.handlePlusPriority = props.handlePlusPriority;
+    this.handleMinusPriority = props.handleMinusPriority;
   }
 
   handleAddNewListItem = e => {
@@ -22,9 +24,6 @@ class TodoList extends Component {
     if (willAddNewItem) {
       this.setState(prevState => {
         const id = prevState.listItems.length + 1;
-        // prevState.listItems.push(
-        //   <ListItem key={id} title={itemTitle} priority={itemPriority} />
-        // );
         prevState.listItems.push({
           id: id,
           title: itemTitle,
@@ -38,7 +37,15 @@ class TodoList extends Component {
 
   render(props) {
     const listItems = this.state.listItems.map(item => (
-      <ListItem key={item.id} title={item.title} priority={item.priority} />
+      <ListItem
+        key={item.id}
+        itemId={item.id}
+        listId={this.state.listId}
+        title={item.title}
+        priority={item.priority}
+        handlePlusPriority={this.handlePlusPriority}
+        handleMinusPriority={this.handleMinusPriority}
+      />
     ));
 
     return (
