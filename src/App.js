@@ -11,7 +11,8 @@ class App extends Component {
     super();
     this.state = {
       todoLists: [],
-      displayAddListForm: false
+      displayAddListForm: false,
+      displayModal: false
     };
   }
 
@@ -60,7 +61,7 @@ class App extends Component {
         });
       }
     }
-    this.setState({ displayAddListForm: false });
+    this.setState({ displayModal: false });
   };
 
   handleAddNewList = e => {
@@ -95,6 +96,45 @@ class App extends Component {
     }
   };
 
+  editItem = e => {};
+
+  deleteItem = e => {};
+
+  editList = e => {};
+
+  deleteList = e => {};
+
+  handleShowModal = e => {
+    this.setState({ displayModal: true });
+  };
+
+  handleListItem = (willAddNewItem, itemTitle, itemPriority) => {
+    if (willAddNewItem) {
+      this.setState(prevState => {
+        const id = prevState.listItems.length + 1;
+        prevState.listItems.push({
+          id: id,
+          title: itemTitle,
+          priority: itemPriority
+        });
+        return prevState;
+      });
+    }
+    // this.handleCloseModal("listItemModal");
+    this.setState({ displayModal: false });
+  };
+
+  handleCloseModal = e => {
+    if (e === "listItemModal") {
+      this.setState({ displayModal: false });
+    } else {
+      const className = e.target.className;
+      if (className === "modal" || className === "modal-close-btn") {
+        this.setState({ displayModal: false });
+      }
+    }
+  };
+
   render() {
     return (
       <div className="app">
@@ -108,6 +148,9 @@ class App extends Component {
                 path="/"
                 component={() => (
                   <Dashboard
+                    handleCloseModal={this.handleCloseModal}
+                    displayModal={this.state.displayModal}
+                    handleShowModal={this.handleShowModal}
                     handleListTitle={this.handleListTitle}
                     handleAddNewList={this.handleAddNewList}
                     handleThumbnailClick={this.handleThumbnailClick}
@@ -128,6 +171,10 @@ class App extends Component {
 
                   return todoList ? (
                     <TodoList
+                      handleListItem={this.handleListItem}
+                      handleCloseModal={this.handleCloseModal}
+                      displayModal={this.state.displayModal}
+                      handleShowModal={this.handleShowModal}
                       title={urlTitle}
                       todoItems={todoList.todoItems}
                       handlePlusPriority={this.handlePlusPriority}

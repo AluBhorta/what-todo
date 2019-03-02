@@ -20,6 +20,41 @@
   }
 }
 
+// modal
+.modal {
+  // display: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+
+  .modal-content {
+    background-color: $white-color;
+    margin: 20% auto;
+    width: 70%;
+    padding: 1.5rem 2rem;
+    box-shadow: $shadow-dark-bg;
+    animation-name: modal;
+    animation-duration: 600ms;
+  }
+
+  .modal-close-btn {
+    color: $light-grey-color;
+    font-size: 3rem;
+    float: right;
+
+    &:hover,
+    &:focus {
+      color: $dark-grey-color;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+}
+
 // add-btn
 .add-btn {
   border-radius: 50%;

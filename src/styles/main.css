@@ -8,11 +8,38 @@ html {
   font-family: Montserrat, -apple-system, "Helvetica Neue", sans-serif;
 }
 
+@-webkit-keyframes modal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 body,
 html {
   margin: 0;
   padding: 0;
   font-family: Montserrat, -apple-system, "Helvetica Neue", sans-serif;
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .header {
@@ -33,6 +60,41 @@ html {
   color: #fff;
   -webkit-transition: 150ms ease-in-out;
   transition: 150ms ease-in-out;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+.modal .modal-content {
+  background-color: #fff;
+  margin: 20% auto;
+  width: 70%;
+  padding: 1.5rem 2rem;
+  -webkit-box-shadow: 8px 8px 29px 7px rgba(0, 0, 0, 0.75);
+          box-shadow: 8px 8px 29px 7px rgba(0, 0, 0, 0.75);
+  -webkit-animation-name: modal;
+          animation-name: modal;
+  -webkit-animation-duration: 600ms;
+          animation-duration: 600ms;
+}
+
+.modal .modal-close-btn {
+  color: #ccc;
+  font-size: 3rem;
+  float: right;
+}
+
+.modal .modal-close-btn:hover, .modal .modal-close-btn:focus {
+  color: #4d4d4d;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .add-btn {
@@ -125,6 +187,15 @@ html {
   font-family: Montserrat, -apple-system, "Helvetica Neue", sans-serif;
 }
 
+@keyframes modal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .app {
   display: -ms-grid;
   display: grid;
@@ -204,28 +275,5 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.header li {
-  display: inline;
-  margin: 0 3rem;
-}
-
-.active-header {
-  text-decoration: overline underline;
-}
-
-.links {
-  padding: 6px 10px;
-  background-color: #666;
-  color: #fff;
-  border-radius: 40px;
-  -webkit-transition: ease-out 200ms;
-  transition: ease-out 200ms;
-}
-
-.links:hover {
-  background-color: #fff;
-  color: #666;
 }
 /*# sourceMappingURL=main.css.map */

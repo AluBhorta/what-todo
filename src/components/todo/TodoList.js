@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import AddButton from "../AddButton";
+
 import ListItem from "./ListItem";
 import AddItemForm from "./AddItemForm";
+import Modal from "../Modal";
 
 class TodoList extends Component {
   constructor(props) {
@@ -12,30 +13,38 @@ class TodoList extends Component {
       listItems: props.todoItems,
       displayAddItemForm: false
     };
+    this.handleListItem = props.handleListItem;
+    this.displayModal = props.displayModal;
     this.handlePlusPriority = props.handlePlusPriority;
     this.handleMinusPriority = props.handleMinusPriority;
+    this.handleShowModal = props.handleShowModal;
+    this.handleCloseModal = props.handleCloseModal;
   }
 
   handleAddNewListItem = e => {
     this.setState({ displayAddItemForm: true });
   };
 
-  handleListItem = (willAddNewItem, itemTitle, itemPriority) => {
-    if (willAddNewItem) {
-      this.setState(prevState => {
-        const id = prevState.listItems.length + 1;
-        prevState.listItems.push({
-          id: id,
-          title: itemTitle,
-          priority: itemPriority
-        });
-        return prevState;
-      });
-    }
-    this.setState({ displayAddItemForm: false });
-  };
+  // handleListItem = (willAddNewItem, itemTitle, itemPriority) => {
+  //   if (willAddNewItem) {
+  //     this.setState(prevState => {
+  //       const id = prevState.listItems.length + 1;
+  //       prevState.listItems.push({
+  //         id: id,
+  //         title: itemTitle,
+  //         priority: itemPriority
+  //       });
+  //       return prevState;
+  //     });
+  //   }
+  //   this.handleCloseModal("listItemModal");
+  //   // this.setState({ displayModal: false });
+  // };
 
   render() {
+    console.log("listItems", this.state.listItems);
+
+    // ~sort the items //
     // const sortedItems = this.state.listItems.sort((a, b) => {
     //   return b.priority - a.priority;
     // });
@@ -54,6 +63,15 @@ class TodoList extends Component {
 
     return (
       <div className="todo-list">
+        {this.displayModal ? (
+          <Modal
+            handleCloseModal={this.handleCloseModal}
+            handleListItem={this.handleListItem}
+          />
+        ) : (
+          ""
+        )}
+
         <div className="list-header">
           <h2>List Name: {this.state.listTitle}</h2>
           <div className="list-edit-btns">
@@ -63,11 +81,10 @@ class TodoList extends Component {
         </div>
 
         <div className="list-body">
-          {this.state.displayAddItemForm ? (
-            <AddItemForm handleListItem={this.handleListItem} />
-          ) : (
-            <AddButton handleAddNewListItem={this.handleAddNewListItem} />
-          )}
+          <button
+            className="add-btn"
+            onClick={this.handleShowModal}
+          >{`+`}</button>
 
           {/* LIST ITEMS */}
           <div className="list-items">{listItems}</div>

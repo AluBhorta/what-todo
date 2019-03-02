@@ -1,7 +1,7 @@
 import React from "react";
 
 function AddButton(props) {
-  const { handleAddNewList, handleAddNewListItem } = props;
+  const { handleShowModal, handleAddNewList, handleAddNewListItem } = props;
   return (
     <div>
       <span>
@@ -9,7 +9,8 @@ function AddButton(props) {
       </span>
       <button
         className="add-btn"
-        onClick={handleAddNewList ? handleAddNewList : handleAddNewListItem}
+        // onClick={handleAddNewList ? handleAddNewList : handleAddNewListItem}
+        onClick={handleShowModal}
       >
         {` + `}
       </button>

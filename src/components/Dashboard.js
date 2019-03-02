@@ -1,24 +1,31 @@
 import React from "react";
-import AddListForm from "./todo/AddListForm";
-import AddButton from "./AddButton";
 import AllListThumbnails from "./todo/AllListThumbnails";
+import Modal from "./Modal";
 
 function Dashboard({
+  handleShowModal,
   handleListTitle,
-  handleAddNewList,
   handleThumbnailClick,
   todoLists,
-  displayAddListForm
+  displayModal,
+  handleCloseModal
 }) {
   return (
     <div className="dashboard">
-      {/* add-list-btn / add-list-form */}
+      {/* modal */}
+      {displayModal ? (
+        <Modal
+          handleCloseModal={handleCloseModal}
+          handleListTitle={handleListTitle}
+        />
+      ) : (
+        ""
+      )}
+
+      {/* btn */}
       <div className="add-list-btn">
-        {displayAddListForm ? (
-          <AddListForm handleListTitle={handleListTitle} />
-        ) : (
-          <AddButton handleAddNewList={handleAddNewList} />
-        )}
+        <span>Add New List</span>
+        <button className="add-btn" onClick={handleShowModal}>{`+`}</button>
       </div>
 
       <AllListThumbnails

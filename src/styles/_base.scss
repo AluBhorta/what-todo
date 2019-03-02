@@ -12,6 +12,7 @@ $black-color: #000;
 $dark-grey-color: #4d4d4d;
 $orangy-color: #ff7f50;
 
+$shadow-dark-bg: 8px 8px 29px 7px rgba(0, 0, 0, 0.75);
 // RESETS
 // *,
 // *::before,
@@ -34,5 +35,15 @@ html {
     @return #000; // Lighter backgorund, return dark color
   } @else {
     @return #fff; // Darker background, return light color
+  }
+}
+
+// keyframes
+@keyframes modal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

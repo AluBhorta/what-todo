@@ -4,7 +4,7 @@ An app that let's you handle multiple (todo) lists. (+ all the lorems)
 
 ## Prospective Features (i.e. to implement)
 
-- priority type string/int
+- fix the modal closing and list-item adding issue in TodoList.js and App.js
 - implement the btns added -> Save Progress to be implemented on add / remove / edit of Lists or Items
   - (advanced) try not updating the whole state on "save progress", instead send a query to append/remove/update a particular list/item
 - list items sorted by priority or chronologically ?(ask user)
@@ -16,8 +16,6 @@ An app that let's you handle multiple (todo) lists. (+ all the lorems)
 - implement the floating thumbnail btn
 - auth/login for the app use (google/fb/...)
 - to style:
-
-  - make 'add item' and 'add list' as MODALS
   - "save progress" btn
   - list items
   - header
