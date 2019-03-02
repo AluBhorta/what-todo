@@ -21,18 +21,18 @@ html {
 }
 
 .header a {
+  background-color: #1a1a1a;
+  color: #ff7f50;
   text-decoration: none;
-  color: #fff;
-  background-color: coral;
   padding: 10px 15px;
   border-radius: 16px;
 }
 
 .header a:hover {
-  background-color: #1a1a1a;
-  color: #ff7f50;
-  -webkit-transition: 100ms ease-in-out;
-  transition: 100ms ease-in-out;
+  background-color: #ff7f50;
+  color: #fff;
+  -webkit-transition: 150ms ease-in-out;
+  transition: 150ms ease-in-out;
 }
 
 .add-btn {
@@ -105,8 +105,12 @@ html {
   padding: 1rem;
 }
 
-.list-item {
+.list-items .list-item {
   border: 1px grey solid;
+}
+
+.list-items:nth-child(even) {
+  background-color: #ccc;
 }
 
 .footer {

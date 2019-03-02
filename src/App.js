@@ -19,7 +19,12 @@ class App extends Component {
     axios
       .get("http://localhost:4000/data")
       .then(res => {
-        this.setState({ todoLists: res.data });
+        console.log(res.data.message);
+        if (res.status === 200) {
+          this.setState({ todoLists: res.data.payload });
+        } else if (res.status === 500) {
+          alert("Error 500: Internal Server Error!\nContact your developer.");
+        }
       })
       .catch(err => console.log(err));
   };
@@ -33,14 +38,16 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-  handleListTitle = title => {
-    const titleExists = this.state.todoLists.find(list => {
-      return list.title === title;
-    });
+  handleListTitle = (willAddNewList, title) => {
+    if (willAddNewList) {
+      const titleExists = this.state.todoLists.find(list => {
+        return list.title === title;
+      });
 
-    titleExists
-      ? alert(`List named '${title}' already exists!`)
-      : this.setState(prevState => {
+      if (titleExists) {
+        return alert(`List named '${title}' already exists!`);
+      } else {
+        this.setState(prevState => {
           const id = prevState.todoLists.length + 1;
 
           prevState.todoLists.push({
@@ -51,6 +58,8 @@ class App extends Component {
 
           return prevState;
         });
+      }
+    }
     this.setState({ displayAddListForm: false });
   };
 
@@ -65,7 +74,6 @@ class App extends Component {
   };
 
   handlePlusPriority = (listId, itemId, prevPriority) => {
-    // if prevPri < 10, then pri++
     if (prevPriority < 10) {
       this.setState(prevState => {
         prevState.todoLists[listId - 1].todoItems[itemId - 1].priority++;
@@ -74,14 +82,9 @@ class App extends Component {
     } else {
       alert("Max priority is 10, unfortunately");
     }
-    // else alert max pri == 10
   };
 
   handleMinusPriority = (listId, itemId, prevPriority) => {
-    // if prevPri > 1, then pri--
-
-    // else alert min pri == 1
-
     if (prevPriority > 1) {
       this.setState(prevState => {
         prevState.todoLists[listId - 1].todoItems[itemId - 1].priority--;

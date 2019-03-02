@@ -24,15 +24,20 @@ class AddListForm extends Component {
         `Please insert a valid List Title. \nInvalid characters: .',"\`*+?$^{}()|[]`
       );
     } else {
-      handleListTitle(listTitle);
+      handleListTitle(true, listTitle);
     }
+  };
+
+  handleCancel = e => {
+    e.preventDefault();
+    this.state.handleListTitle(false);
   };
 
   render() {
     return (
       <div className="add-list-form">
         <h4>List form</h4>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <input
             type="text"
             name="listTitle"
@@ -42,7 +47,10 @@ class AddListForm extends Component {
             autoFocus={true}
           />
 
-          <button>Add New List</button>
+          <button type="submit" onClick={this.handleSubmit}>
+            Add New List
+          </button>
+          <button onClick={this.handleCancel}>Cancel</button>
         </form>
       </div>
     );

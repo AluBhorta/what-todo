@@ -6,17 +6,16 @@
   background-color: $dark-grey-color;
   color: $white-color;
   a {
+    background-color: darken($dark-grey-color, 20);
+    color: $orangy-color;
     text-decoration: none;
-    color: $white-color;
-
-    background-color: lighten($orangy-color, 0);
     padding: 10px 15px;
     border-radius: 16px;
 
     &:hover {
-      background-color: darken($dark-grey-color, 20);
-      color: $orangy-color;
-      transition: 100ms ease-in-out;
+      background-color: $orangy-color;
+      color: $white-color;
+      transition: 150ms ease-in-out;
     }
   }
 }
@@ -90,8 +89,14 @@
   padding: 1rem;
 }
 
-.list-item {
-  border: 1px grey solid;
+.list-items {
+  .list-item {
+    border: 1px grey solid;
+  }
+
+  &:nth-child(even) {
+    background-color: #ccc;
+  }
 }
 
 // footer

@@ -35,7 +35,11 @@ class TodoList extends Component {
     this.setState({ displayAddItemForm: false });
   };
 
-  render(props) {
+  render() {
+    // const sortedItems = this.state.listItems.sort((a, b) => {
+    //   return b.priority - a.priority;
+    // });
+
     const listItems = this.state.listItems.map(item => (
       <ListItem
         key={item.id}
@@ -64,6 +68,8 @@ class TodoList extends Component {
           ) : (
             <AddButton handleAddNewListItem={this.handleAddNewListItem} />
           )}
+
+          {/* LIST ITEMS */}
           <div className="list-items">{listItems}</div>
         </div>
       </div>
